@@ -1,8 +1,9 @@
 import UIKit
 
 class ViewController: UIViewController {
-    lazy var game = Memory(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
+    lazy var game = Memory(numberOfPairsOfCards: numberOfPairsOfCards)
     
+    var numberOfPairsOfCards: Int { return (cardButtons.count + 1) / 2 }
     var flipCount = 0 { didSet { flipCountLabel.text = "Flips: \(flipCount)" } }
     var emojiChoices = ["🌝", "⭐️", "🌹" ,"🌍" ,"🍓" ,"❤️"]
     var emojiDict = [Int:String]()
