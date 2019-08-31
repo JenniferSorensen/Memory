@@ -3,7 +3,7 @@ import Foundation
 class Memory {
     var cards = [Card]()
     
-    var indexOfOnlyFaceUpCard: Int? {
+    private var indexOfOnlyFaceUpCard: Int? {
         get {
             var foundIndex: Int?
             for index in cards.indices {
@@ -39,7 +39,7 @@ class Memory {
         }
     }
     
-    func shuffleCards() {
+    private func shuffleCards() {
         //Fisher-Yates algorithm
         var last = cards.count - 1
         while last > 0 {

@@ -5,9 +5,9 @@ struct Card {
     var isFlipped = false
     var isMatched = false
     
-    static var idFactory = 0
+    private static var idFactory = 0
     
-    static func getUniqueId() -> Int {
+    private static func getUniqueId() -> Int {
         Card.idFactory += 1
         return Card.idFactory
     }
