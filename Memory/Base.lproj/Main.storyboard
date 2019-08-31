@@ -90,12 +90,6 @@
                                     <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8Ma-EP-tiO"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flips: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qHw-DU-Rms">
-                                <rect key="frame" x="155" y="801" width="109" height="42"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                <color key="textColor" red="0.57919406890000003" green="0.1280144453" blue="0.57268613580000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="muN-a5-myx">
                                 <rect key="frame" x="20" y="310" width="80" height="115"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -132,6 +126,21 @@
                                     <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DDz-KP-ZHN"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flips: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qHw-DU-Rms">
+                                <rect key="frame" x="155" y="801" width="109" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <color key="textColor" red="0.57919406890000003" green="0.1280144453" blue="0.57268613580000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2tF-T6-fyY">
+                                <rect key="frame" x="105" y="692" width="204" height="101"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="New Game"/>
+                                <connections>
+                                    <action selector="startNewGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mXp-Li-r1J"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -142,18 +151,18 @@
                     </view>
                     <connections>
                         <outlet property="flipCountLabel" destination="qHw-DU-Rms" id="leh-TI-Oi1"/>
-                        <outletCollection property="buttons" destination="HG7-20-H25" collectionClass="NSMutableArray" id="laM-2J-Xgz"/>
-                        <outletCollection property="buttons" destination="uem-rg-yL4" collectionClass="NSMutableArray" id="29m-MV-4c8"/>
-                        <outletCollection property="buttons" destination="MH6-De-JUa" collectionClass="NSMutableArray" id="2dG-hv-C5P"/>
-                        <outletCollection property="buttons" destination="uoV-JS-15U" collectionClass="NSMutableArray" id="bio-XH-kR8"/>
-                        <outletCollection property="buttons" destination="S5s-ld-Wbq" collectionClass="NSMutableArray" id="ZOW-al-BiQ"/>
-                        <outletCollection property="buttons" destination="b5w-cR-m39" collectionClass="NSMutableArray" id="3vx-60-8KG"/>
-                        <outletCollection property="buttons" destination="jtx-mg-xsr" collectionClass="NSMutableArray" id="WM5-Lv-jhl"/>
-                        <outletCollection property="buttons" destination="Rur-fO-is2" collectionClass="NSMutableArray" id="DHS-oR-YUJ"/>
-                        <outletCollection property="buttons" destination="muN-a5-myx" collectionClass="NSMutableArray" id="vSo-5Q-cdg"/>
-                        <outletCollection property="buttons" destination="tPK-dM-byQ" collectionClass="NSMutableArray" id="6IS-xc-5m9"/>
-                        <outletCollection property="buttons" destination="OXv-fK-d4y" collectionClass="NSMutableArray" id="m4v-VY-QGP"/>
-                        <outletCollection property="buttons" destination="Jf1-X4-AdT" collectionClass="NSMutableArray" id="9h0-me-jAh"/>
+                        <outletCollection property="cardButtons" destination="HG7-20-H25" collectionClass="NSMutableArray" id="laM-2J-Xgz"/>
+                        <outletCollection property="cardButtons" destination="uem-rg-yL4" collectionClass="NSMutableArray" id="29m-MV-4c8"/>
+                        <outletCollection property="cardButtons" destination="MH6-De-JUa" collectionClass="NSMutableArray" id="2dG-hv-C5P"/>
+                        <outletCollection property="cardButtons" destination="uoV-JS-15U" collectionClass="NSMutableArray" id="bio-XH-kR8"/>
+                        <outletCollection property="cardButtons" destination="S5s-ld-Wbq" collectionClass="NSMutableArray" id="ZOW-al-BiQ"/>
+                        <outletCollection property="cardButtons" destination="b5w-cR-m39" collectionClass="NSMutableArray" id="3vx-60-8KG"/>
+                        <outletCollection property="cardButtons" destination="jtx-mg-xsr" collectionClass="NSMutableArray" id="WM5-Lv-jhl"/>
+                        <outletCollection property="cardButtons" destination="Rur-fO-is2" collectionClass="NSMutableArray" id="DHS-oR-YUJ"/>
+                        <outletCollection property="cardButtons" destination="muN-a5-myx" collectionClass="NSMutableArray" id="vSo-5Q-cdg"/>
+                        <outletCollection property="cardButtons" destination="tPK-dM-byQ" collectionClass="NSMutableArray" id="6IS-xc-5m9"/>
+                        <outletCollection property="cardButtons" destination="OXv-fK-d4y" collectionClass="NSMutableArray" id="m4v-VY-QGP"/>
+                        <outletCollection property="cardButtons" destination="Jf1-X4-AdT" collectionClass="NSMutableArray" id="9h0-me-jAh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

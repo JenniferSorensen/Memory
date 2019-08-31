@@ -1,26 +1,33 @@
 import UIKit
 
 class ViewController: UIViewController {
-    lazy var game = Memory(numberOfPairsOfCards: (buttons.count + 1) / 2)
+    lazy var game = Memory(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
     
     var flipCount = 0 { didSet { flipCountLabel.text = "Flips: \(flipCount)" } }
     var emojiChoices = ["🌝", "⭐️", "🌹" ,"🌍" ,"🍓" ,"❤️"]
     var emojiDict = [Int:String]()
     
     @IBOutlet weak var flipCountLabel: UILabel!
-    @IBOutlet var buttons: [UIButton]!
+    @IBOutlet var cardButtons: [UIButton]!
     
     @IBAction func touchCard(_ sender: UIButton) {
-        if let cardNumber = buttons.firstIndex(of: sender) {
+        if let cardNumber = cardButtons.firstIndex(of: sender) {
             game.chooseCard(atIndex: cardNumber)
             updateViewFromModel()
             flipCount += 1
         }
     }
     
+    @IBAction func startNewGame(_ sender: UIButton) {
+        emojiChoices = ["🌝", "⭐️", "🌹" ,"🌍" ,"🍓" ,"❤️"]
+        game = Memory(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
+        flipCount = 0
+        updateViewFromModel()
+    }
+    
     func updateViewFromModel() {
-        for index in buttons.indices {
-            let button = buttons[index]
+        for index in cardButtons.indices {
+            let button = cardButtons[index]
             let card = game.cards[index]
             
             if !card.isFlipped {
