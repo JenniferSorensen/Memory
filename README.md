@@ -1,2 +1,2 @@
 # Memory
-A Memory game for iOS I implement while watching the Stanford iOS course on ITunes U.
+A Memory game for iOS that I implemented while watching the Stanford Swift course on iTunes U.
