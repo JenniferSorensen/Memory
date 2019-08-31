@@ -25,6 +25,7 @@ class Memory {
     }
     
     func chooseCard(atIndex index: Int) {
+        assert(cards.indices.contains(index), "Concentration.chooseCard(at \(index)): Index is not in the cards.")
         if !cards[index].isMatched {
             if let matchIndex = indexOfOnlyFaceUpCard, matchIndex != index {
                 if cards[matchIndex].id == cards[index].id {
@@ -50,6 +51,7 @@ class Memory {
     }
     
     init(numberOfPairsOfCards: Int) {
+        assert(numberOfPairsOfCards > 0, "Concentration.init(numberOfPairsOfCards: \(numberOfPairsOfCards): You must have at least one pair of cards.")
         for _ in 0..<numberOfPairsOfCards {
             let card = Card()
             cards += [card, card]
