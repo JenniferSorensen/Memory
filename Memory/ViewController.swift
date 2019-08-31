@@ -14,6 +14,7 @@ class ViewController: UIViewController {
         if let cardNumber = buttons.firstIndex(of: sender) {
             game.chooseCard(atIndex: cardNumber)
             updateViewFromModel()
+            flipCount += 1
         }
     }
     
@@ -29,7 +30,6 @@ class ViewController: UIViewController {
                 button.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
                 button.setTitle(getEmoji(for: card), for: UIControl.State.normal)
             }
-            flipCount += 1
         }
     }
     
