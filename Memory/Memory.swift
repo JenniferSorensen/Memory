@@ -44,7 +44,7 @@ class Memory {
         //Fisher-Yates algorithm
         var last = cards.count - 1
         while last > 0 {
-            let randomIndex = Int(arc4random_uniform(UInt32(last)))
+            let randomIndex = last.arc4random
             cards.swapAt(last, randomIndex)
             last -= 1
         }
