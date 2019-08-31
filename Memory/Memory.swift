@@ -24,10 +24,21 @@ class Memory {
         }
     }
     
+    func shuffleCards() {
+        //Fisher-Yates algorithm
+        var last = cards.count - 1
+        while last > 0 {
+            let randomIndex = Int(arc4random_uniform(UInt32(last)))
+            cards.swapAt(last, randomIndex)
+            last -= 1
+        }
+    }
+    
     init(numberOfPairsOfCards: Int) {
         for _ in 0..<numberOfPairsOfCards {
             let card = Card()
             cards += [card, card]
         }
+        shuffleCards()
     }
 }
