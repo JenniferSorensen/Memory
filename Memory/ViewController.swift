@@ -5,7 +5,7 @@ class ViewController: UIViewController {
     
     var numberOfPairsOfCards: Int { return (cardButtons.count + 1) / 2 }
     private(set) var flipCount = 0 { didSet { flipCountLabel.text = "Flips: \(flipCount)" } }
-    private var emojiChoices = ["🌝", "⭐️", "🌹" ,"🌍" ,"🍓" ,"❤️"]
+    lazy private var emojiChoices = initEmojiChoices()
     private var emojiDict = [Int:String]()
     
     @IBOutlet private weak var flipCountLabel: UILabel!
@@ -20,8 +20,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func startNewGame(_ sender: UIButton) {
-        emojiChoices = ["🌝", "⭐️", "🌹" ,"🌍" ,"🍓" ,"❤️"]
         game = Memory(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
+        emojiChoices = initEmojiChoices()
         flipCount = 0
         updateViewFromModel()
     }
@@ -46,6 +46,10 @@ class ViewController: UIViewController {
             emojiDict[card.id] = emojiChoices.remove(at: emojiChoices.count.arc4random)
         }
         return emojiDict[card.id] ?? "?"
+    }
+    
+    private func initEmojiChoices() -> [String] {
+        return ["🌝", "⭐️", "🌹" ,"🌍" ,"🍓" ,"❤️","☠️", "👽", "👾", "🤖", "🎃"]
     }
 }
 
