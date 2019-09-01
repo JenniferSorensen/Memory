@@ -43,13 +43,14 @@ class ViewController: UIViewController {
     
     private func getEmoji(for card:Card) -> String {
         if emojiDict[card] == nil, emojiChoices.count > 0 {
-            emojiDict[card] = emojiChoices.remove(at: emojiChoices.count.arc4random)
+            let randomStringIndex = emojiChoices.index(emojiChoices.startIndex, offsetBy: emojiChoices.count.arc4random)
+            emojiDict[card] = String(emojiChoices.remove(at: randomStringIndex))
         }
         return emojiDict[card] ?? "?"
     }
     
-    private func initEmojiChoices() -> [String] {
-        return ["🌝", "⭐️", "🌹" ,"🌍" ,"🍓" ,"❤️","☠️", "👽", "👾", "🤖", "🎃"]
+    private func initEmojiChoices() -> String {
+        return "🌝⭐️🌹🌍🍓❤️☠️👽👾🤖🎃🐶🐱🐭🐹🐰🦊🐻🐼🐨🐯🦁🐮🐷🐽🐸🌖🌗🌘🌑🌒🌓🌔🌚🍏🍎🍐🍋🍌🍉😎🤡🤠"
     }
 }
 
