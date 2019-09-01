@@ -6,7 +6,7 @@ class ViewController: UIViewController {
     var numberOfPairsOfCards: Int { return (cardButtons.count + 1) / 2 }
     private(set) var flipCount = 0 { didSet { flipCountLabel.text = "Flips: \(flipCount)" } }
     lazy private var emojiChoices = initEmojiChoices()
-    private var emojiDict = [Int:String]()
+    private var emojiDict = [Card:String]()
     
     @IBOutlet private weak var flipCountLabel: UILabel!
     @IBOutlet private var cardButtons: [UIButton]!
@@ -42,10 +42,10 @@ class ViewController: UIViewController {
     }
     
     private func getEmoji(for card:Card) -> String {
-        if emojiDict[card.id] == nil, emojiChoices.count > 0 {
-            emojiDict[card.id] = emojiChoices.remove(at: emojiChoices.count.arc4random)
+        if emojiDict[card] == nil, emojiChoices.count > 0 {
+            emojiDict[card] = emojiChoices.remove(at: emojiChoices.count.arc4random)
         }
-        return emojiDict[card.id] ?? "?"
+        return emojiDict[card] ?? "?"
     }
     
     private func initEmojiChoices() -> [String] {

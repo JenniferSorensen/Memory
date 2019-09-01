@@ -28,7 +28,7 @@ class Memory {
         assert(cards.indices.contains(index), "Concentration.chooseCard(at \(index)): Index is not in the cards.")
         if !cards[index].isMatched {
             if let matchIndex = indexOfOnlyFaceUpCard, matchIndex != index {
-                if cards[matchIndex].id == cards[index].id {
+                if cards[matchIndex] == cards[index] {
                     cards[matchIndex].isMatched = true
                     cards[index].isMatched = true
                 }
