@@ -4,11 +4,21 @@ class ViewController: UIViewController {
     lazy private var game = Memory(numberOfPairsOfCards: numberOfPairsOfCards)
     
     var numberOfPairsOfCards: Int { return (cardButtons.count + 1) / 2 }
-    private(set) var flipCount = 0 { didSet { flipCountLabel.text = "Flips: \(flipCount)" } }
+    
+    private(set) var flipCount = 0 {
+        didSet {
+            updateFlipCountLabel()
+        }
+    }
+    
     lazy private var emojiChoices = initEmojiChoices()
     private var emojiDict = [Card:String]()
     
-    @IBOutlet private weak var flipCountLabel: UILabel!
+    @IBOutlet private weak var flipCountLabel: UILabel! {
+        didSet {
+            updateFlipCountLabel()
+        }
+    }
     @IBOutlet private var cardButtons: [UIButton]!
     
     @IBAction func touchCard(_ sender: UIButton) {
@@ -24,6 +34,15 @@ class ViewController: UIViewController {
         emojiChoices = initEmojiChoices()
         flipCount = 0
         updateViewFromModel()
+    }
+    
+    private func updateFlipCountLabel() {
+            let attributes : [NSAttributedString.Key:Any] = [
+                .strokeWidth : 5,
+                .strokeColor : #colorLiteral(red: 0.5791940689, green: 0.1280144453, blue: 0.5726861358, alpha: 1)
+            ]
+            let attributedString = NSAttributedString(string: "Flips: \(flipCount)", attributes: attributes)
+            flipCountLabel.attributedText = attributedString
     }
     
     private func updateViewFromModel() {
