@@ -26,6 +26,11 @@ class ViewController: UIViewController {
             game.chooseCard(atIndex: cardNumber)
             updateViewFromModel()
             flipCount += 1
+            for index in cardButtons.indices {
+                if game.cards[index].isMatched, cardButtons[index].isEnabled == true {
+                    cardButtons[index].isEnabled = false
+                }
+            }
         }
     }
     
