@@ -39,6 +39,9 @@ class ViewController: UIViewController {
         emojiChoices = initEmojiChoices()
         flipCount = 0
         updateViewFromModel()
+        for index in cardButtons.indices {
+            cardButtons[index].isEnabled = true
+        }
     }
     
     private func updateFlipCountLabel() {
