@@ -2,6 +2,14 @@ import Foundation
 
 class Memory {
     var cards = [Card]()
+    var allCardsMatched = false
+    var matchedCards = 0 {
+        didSet {
+            if matchedCards == cards.count {
+                allCardsMatched = true
+            }
+        }
+    }
     
     private var indexOfOnlyFaceUpCard: Int? {
         get {
@@ -21,6 +29,7 @@ class Memory {
                 if cards[matchIndex] == cards[index] {
                     cards[matchIndex].isMatched = true
                     cards[index].isMatched = true
+                    matchedCards += 2
                 }
                 cards[index].isFlipped = true
             } else {

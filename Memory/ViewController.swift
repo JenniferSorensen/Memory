@@ -31,6 +31,12 @@ class ViewController: UIViewController {
                     cardButtons[index].isEnabled = false
                 }
             }
+            if game.allCardsMatched {
+                for index in cardButtons.indices {
+                    cardButtons[index].backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+                    cardButtons[index].setTitle("", for: UIControl.State.normal)
+                }
+            }
         }
     }
     
