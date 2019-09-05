@@ -45,8 +45,9 @@ class ViewController: UIViewController {
         emojiChoices = initEmojiChoices()
         flipCount = 0
         updateViewFromModel()
-        for index in cardButtons.indices {
-            cardButtons[index].isEnabled = true
+        
+        for button in cardButtons {
+            button.isEnabled = true
         }
     }
     
