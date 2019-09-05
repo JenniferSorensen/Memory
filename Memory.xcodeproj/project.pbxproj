@@ -12,6 +12,7 @@
 		302900962316EE04005BF548 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 302900942316EE04005BF548 /* Main.storyboard */; };
 		302900982316EE07005BF548 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 302900972316EE07005BF548 /* Assets.xcassets */; };
 		3029009B2316EE07005BF548 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 302900992316EE07005BF548 /* LaunchScreen.storyboard */; };
+		302BB8A123215F2900F0036B /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302BB8A023215F2900F0036B /* Theme.swift */; };
 		3072420F2317D8EF00D7F65F /* Memory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3072420E2317D8EF00D7F65F /* Memory.swift */; };
 		307242112317D8FF00D7F65F /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307242102317D8FF00D7F65F /* Card.swift */; };
 /* End PBXBuildFile section */
@@ -43,6 +44,7 @@
 		3029009C2316EE07005BF548 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		302900A12316EE07005BF548 /* MemoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemoryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		302900AC2316EE07005BF548 /* MemoryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemoryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		302BB8A023215F2900F0036B /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		3072420E2317D8EF00D7F65F /* Memory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memory.swift; sourceTree = "<group>"; };
 		307242102317D8FF00D7F65F /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,6 +101,7 @@
 				307242102317D8FF00D7F65F /* Card.swift */,
 				302900942316EE04005BF548 /* Main.storyboard */,
 				3029009C2316EE07005BF548 /* Info.plist */,
+				302BB8A023215F2900F0036B /* Theme.swift */,
 			);
 			path = Memory;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 			files = (
 				3072420F2317D8EF00D7F65F /* Memory.swift in Sources */,
 				302900932316EE04005BF548 /* ViewController.swift in Sources */,
+				302BB8A123215F2900F0036B /* Theme.swift in Sources */,
 				302900912316EE04005BF548 /* AppDelegate.swift in Sources */,
 				307242112317D8FF00D7F65F /* Card.swift in Sources */,
 			);

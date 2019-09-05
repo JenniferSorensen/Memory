@@ -2,6 +2,8 @@ import UIKit
 
 class ViewController: UIViewController {
     lazy private var game = Memory(numberOfPairsOfCards: numberOfPairsOfCards)
+    private var emojiDict = [Card:String]()
+    lazy private var theme = getRandomTheme(themesArray: getThemesArray())
     
     var numberOfPairsOfCards: Int { return (cardButtons.count + 1) / 2 }
     
@@ -11,15 +13,13 @@ class ViewController: UIViewController {
         }
     }
     
-    lazy private var emojiChoices = initEmojiChoices()
-    private var emojiDict = [Card:String]()
+    @IBOutlet private var cardButtons: [UIButton]!
     
     @IBOutlet private weak var flipCountLabel: UILabel! {
         didSet {
             updateFlipCountLabel()
         }
     }
-    @IBOutlet private var cardButtons: [UIButton]!
     
     @IBAction func touchCard(_ sender: UIButton) {
         if let cardNumber = cardButtons.firstIndex(of: sender) {
@@ -27,7 +27,7 @@ class ViewController: UIViewController {
             updateViewFromModel()
             flipCount += 1
             for index in cardButtons.indices {
-                if game.cards[index].isMatched, cardButtons[index].isEnabled == true {
+                if game.cards[index].isMatched, cardButtons[index].isEnabled {
                     cardButtons[index].isEnabled = false
                 }
             }
@@ -42,8 +42,8 @@ class ViewController: UIViewController {
     
     @IBAction func startNewGame(_ sender: UIButton) {
         game = Memory(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
-        emojiChoices = initEmojiChoices()
         flipCount = 0
+        applyNewTheme()
         updateViewFromModel()
         
         for button in cardButtons {
@@ -51,10 +51,20 @@ class ViewController: UIViewController {
         }
     }
     
+    internal override func viewWillAppear(_ animated: Bool) {
+        applyNewTheme()
+        updateViewFromModel()
+    }
+    
+    private func applyNewTheme() {
+        theme = getRandomTheme(themesArray: getThemesArray())
+        self.view.backgroundColor = theme.colors.background
+    }
+    
     private func updateFlipCountLabel() {
             let attributes : [NSAttributedString.Key:Any] = [
                 .strokeWidth : 5,
-                .strokeColor : #colorLiteral(red: 0.5791940689, green: 0.1280144453, blue: 0.5726861358, alpha: 1)
+                .strokeColor : #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
             ]
             let attributedString = NSAttributedString(string: "Flips: \(flipCount)", attributes: attributes)
             flipCountLabel.attributedText = attributedString
@@ -66,7 +76,7 @@ class ViewController: UIViewController {
             let card = game.cards[index]
             
             if !card.isFlipped {
-                button.backgroundColor = card.isMatched ? #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 0) : #colorLiteral(red: 0.5791940689, green: 0.1280144453, blue: 0.5726861358, alpha: 1)
+                button.backgroundColor = card.isMatched ? #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 0) : theme.colors.cards
                 button.setTitle("", for: UIControl.State.normal)
             } else {
                 button.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
@@ -75,16 +85,29 @@ class ViewController: UIViewController {
         }
     }
     
-    private func getEmoji(for card:Card) -> String {
-        if emojiDict[card] == nil, emojiChoices.count > 0 {
-            let randomStringIndex = emojiChoices.index(emojiChoices.startIndex, offsetBy: emojiChoices.count.arc4random)
-            emojiDict[card] = String(emojiChoices.remove(at: randomStringIndex))
+    private func getEmoji(for card: Card) -> String {
+        if emojiDict[card] == nil, theme.emojiChoices.count > 0 {
+            let randomStringIndex = theme.emojiChoices.index(theme.emojiChoices.startIndex, offsetBy: theme.emojiChoices.count.arc4random)
+            emojiDict[card] = String(theme.emojiChoices.remove(at: randomStringIndex))
         }
         return emojiDict[card] ?? "?"
     }
     
-    private func initEmojiChoices() -> String {
-        return "🌝⭐️🌹🌍🍓❤️☠️👽👾🤖🎃🐶🐱🐭🐹🐰🦊🐻🐼🐨🐯🦁🐮🐷🐽🐸🌖🌗🌘🌑🌒🌓🌔🌚🍏🍎🍐🍋🍌🍉😎🤡🤠"
+    private func getThemesArray() -> [Theme] {
+        var themes: [Theme] = []
+        themes.append(Theme(backgroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), cardColor: #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1),emojiChoices: "⛄️❄️🎄🌬🌨☃️🥛🍪🌌💠🤒🐇"))
+        themes.append(Theme(backgroundColor: #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1), cardColor: #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1),emojiChoices: "🐶🐱🐭🐹🐰🦊🐻🐼🐨🐯🦁🐮"))
+        themes.append(Theme(backgroundColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), cardColor: #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1),emojiChoices: "🍭🙀🍬🍁☠️🕷🕸👻😈👿👹🎃"))
+        themes.append(Theme(backgroundColor: #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1), cardColor: #colorLiteral(red: 0.5262701511, green: 0.2519584, blue: 0, alpha: 1),emojiChoices: "🌲🌳🌴🌱🌿🍀🎋🍃🍂🍄🌾💐"))
+        themes.append(Theme(backgroundColor: #colorLiteral(red: 0.9657920003, green: 0.6433867812, blue: 0, alpha: 1), cardColor: #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1),emojiChoices: "🍱🍛🍚🍙🍘🍣📱🀄️🐼🍜🍲🍥"))
+        themes.append(Theme(backgroundColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1), cardColor: #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1),emojiChoices: "💛💚💙💜🖤❣️💕💞💗💖💘💝"))
+        return themes
+    }
+    
+    private func getRandomTheme(themesArray themes: [Theme]) -> Theme {
+        let randomThemeId = getThemesArray().count.arc4random
+        
+        return themes[randomThemeId]
     }
 }
 
