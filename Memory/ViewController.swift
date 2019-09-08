@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func touchCard(_ sender: UIButton) {
-        if let cardNumber = cardButtons.firstIndex(of: sender) {
+        if let cardNumber = cardButtons.firstIndex(of: sender), !game.cards[cardNumber].isFlipped {
             game.chooseCard(atIndex: cardNumber)
             updateViewFromModel()
             flipCount += 1
