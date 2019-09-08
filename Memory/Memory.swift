@@ -3,15 +3,19 @@ import Foundation
 class Memory {
     var cards = [Card]()
     var allCardsMatched = false
+    var score = 0
+    var flipCount = 0
+    
     var matchedCards = 0 {
         didSet {
             if matchedCards == cards.count {
                 allCardsMatched = true
             }
+            score += 2
         }
     }
     
-    private var indexOfOnlyFaceUpCard: Int? {
+    private(set) var indexOfOnlyFaceUpCard: Int? {
         get {
             return cards.indices.filter { cards[$0].isFlipped }.oneAndOnly
         }
@@ -24,14 +28,25 @@ class Memory {
     
     func chooseCard(atIndex index: Int) {
         assert(cards.indices.contains(index), "Memory.chooseCard(at \(index)): Index is not in the cards.")
+        flipCount += 1
         if !cards[index].isMatched {
             if let matchIndex = indexOfOnlyFaceUpCard, matchIndex != index {
+                //exactly 2 cards are flipped and there is a match
                 if cards[matchIndex] == cards[index] {
                     cards[matchIndex].isMatched = true
                     cards[index].isMatched = true
                     matchedCards += 2
+                } else {
+                    //exactly 2 cards are flipped and there is no match
+                    if cards[matchIndex].alreadySeen {
+                        score -= 1
+                    }
+                    if cards[index].alreadySeen {
+                        score -= 1
+                    }
                 }
                 cards[index].isFlipped = true
+                cards[index].alreadySeen = true
             } else {
                 //either no cards of both cards are flipped
                 indexOfOnlyFaceUpCard = index

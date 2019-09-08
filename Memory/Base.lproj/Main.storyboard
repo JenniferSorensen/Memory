@@ -136,15 +136,21 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2tF-T6-fyY">
-                                <rect key="frame" x="135.66666666666669" y="745" width="142.66666666666669" height="48"/>
+                                <rect key="frame" x="135.66666666666666" y="814" width="142.99999999999997" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="New Game"/>
                                 <connections>
                                     <action selector="startNewGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mXp-Li-r1J"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xl0-xR-M5U">
+                                <rect key="frame" x="72.333333333333343" y="756" width="125.33333333333334" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flips: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qHw-DU-Rms">
-                                <rect key="frame" x="152.66666666666666" y="820" width="108.66666666666666" height="42"/>
+                                <rect key="frame" x="224.66666666666666" y="756" width="108.66666666666666" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <color key="textColor" red="0.57919406890000003" green="0.1280144453" blue="0.57268613580000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -152,38 +158,39 @@
                         </subviews>
                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="2tF-T6-fyY" secondAttribute="bottom" constant="69" id="028-ow-vLa"/>
-                            <constraint firstItem="2tF-T6-fyY" firstAttribute="top" relation="greaterThanOrEqual" secondItem="QGF-et-eWT" secondAttribute="bottom" constant="8" symbolic="YES" id="2A6-Es-SVZ"/>
+                            <constraint firstItem="qHw-DU-Rms" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="72" id="1Iy-kD-3hY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="qHw-DU-Rms" secondAttribute="bottom" constant="19" id="9ls-XZ-2rO"/>
                             <constraint firstItem="2tF-T6-fyY" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="B0z-gj-Y7I"/>
-                            <constraint firstItem="2tF-T6-fyY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="135.66666666666666" id="BEH-B5-IU1"/>
                             <constraint firstItem="2tF-T6-fyY" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="DR2-UY-z3B"/>
                             <constraint firstItem="qHw-DU-Rms" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="155" id="HHJ-Ou-Wpe"/>
                             <constraint firstItem="2tF-T6-fyY" firstAttribute="top" relation="greaterThanOrEqual" secondItem="neV-3e-iAY" secondAttribute="bottom" id="HrJ-ea-Lpe"/>
                             <constraint firstItem="QGF-et-eWT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="J1t-tF-Vhf"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2tF-T6-fyY" secondAttribute="trailing" constant="135.66666666666663" id="aeo-Ju-vo2"/>
+                            <constraint firstItem="2tF-T6-fyY" firstAttribute="top" secondItem="qHw-DU-Rms" secondAttribute="bottom" constant="16" id="M0w-aJ-zok"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="2tF-T6-fyY" secondAttribute="bottom" id="SLS-Ap-wSf"/>
+                            <constraint firstItem="2tF-T6-fyY" firstAttribute="top" secondItem="Xl0-xR-M5U" secondAttribute="bottom" constant="16" id="U4Z-sz-Hil"/>
+                            <constraint firstItem="2tF-T6-fyY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bTA-RM-kbd"/>
                             <constraint firstItem="QGF-et-eWT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="bvf-sE-Ztu"/>
-                            <constraint firstItem="qHw-DU-Rms" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="gSL-7Z-s6N"/>
+                            <constraint firstItem="Xl0-xR-M5U" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-72" id="jkm-wo-BUh"/>
                             <constraint firstItem="2tF-T6-fyY" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="mow-1f-Cgf"/>
                             <constraint firstItem="qHw-DU-Rms" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="153" id="r4E-bT-HIC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QGF-et-eWT" secondAttribute="trailing" constant="20" id="rdl-hn-DDM"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="qHw-DU-Rms" secondAttribute="bottom" id="yAY-6M-zp9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="9ls-XZ-2rO"/>
+                                <exclude reference="HHJ-Ou-Wpe"/>
+                                <exclude reference="r4E-bT-HIC"/>
                                 <exclude reference="B0z-gj-Y7I"/>
                                 <exclude reference="DR2-UY-z3B"/>
                                 <exclude reference="HrJ-ea-Lpe"/>
                                 <exclude reference="mow-1f-Cgf"/>
-                                <exclude reference="HHJ-Ou-Wpe"/>
-                                <exclude reference="r4E-bT-HIC"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="flipCountLabel" destination="qHw-DU-Rms" id="leh-TI-Oi1"/>
+                        <outlet property="scoreLabel" destination="Xl0-xR-M5U" id="0Zt-XU-buO"/>
                         <outletCollection property="cardButtons" destination="uoV-JS-15U" collectionClass="NSMutableArray" id="bio-XH-kR8"/>
                         <outletCollection property="cardButtons" destination="MH6-De-JUa" collectionClass="NSMutableArray" id="2dG-hv-C5P"/>
                         <outletCollection property="cardButtons" destination="uem-rg-yL4" collectionClass="NSMutableArray" id="29m-MV-4c8"/>

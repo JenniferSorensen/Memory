@@ -4,6 +4,7 @@ struct Card: Hashable {
     private var id: Int
     var isFlipped = false
     var isMatched = false
+    var alreadySeen = false
     
     private static var idFactory = 0
     
