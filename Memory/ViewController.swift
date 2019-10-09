@@ -46,6 +46,7 @@ class ViewController: UIViewController {
     }
     
     internal override func viewWillAppear(_ animated: Bool) {
+        roundButtonCorners()
         applyNewTheme()
         updateViewFromModel()
     }
@@ -104,6 +105,15 @@ class ViewController: UIViewController {
         themes.append(Theme(backgroundColor: #colorLiteral(red: 0.9657920003, green: 0.6433867812, blue: 0, alpha: 1), cardColor: #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1),emojiChoices: "🍱🍛🍚🍙🍘🍣📱🀄️🐼🍜🍲🍥"))
         themes.append(Theme(backgroundColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1), cardColor: #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1),emojiChoices: "💛💚💙💜🖤❣️💕💞💗💖💘💝"))
         return themes
+    }
+    
+    private func roundButtonCorners() {
+        for button in cardButtons {
+            button.backgroundColor = .clear
+            button.layer.cornerRadius = 5
+            button.layer.borderWidth = 1
+            button.layer.borderColor = UIColor.black.cgColor
+        }
     }
 }
 
