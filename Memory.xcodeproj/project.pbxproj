@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		302900912316EE04005BF548 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302900902316EE04005BF548 /* AppDelegate.swift */; };
-		302900932316EE04005BF548 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302900922316EE04005BF548 /* ViewController.swift */; };
+		302900932316EE04005BF548 /* MemoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302900922316EE04005BF548 /* MemoryViewController.swift */; };
 		302900962316EE04005BF548 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 302900942316EE04005BF548 /* Main.storyboard */; };
 		302900982316EE07005BF548 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 302900972316EE07005BF548 /* Assets.xcassets */; };
 		3029009B2316EE07005BF548 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 302900992316EE07005BF548 /* LaunchScreen.storyboard */; };
 		302BB8A123215F2900F0036B /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302BB8A023215F2900F0036B /* Theme.swift */; };
+		306DA4552370388100112A54 /* ThemeChooserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306DA4542370388100112A54 /* ThemeChooserViewController.swift */; };
 		3072420F2317D8EF00D7F65F /* Memory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3072420E2317D8EF00D7F65F /* Memory.swift */; };
 		307242112317D8FF00D7F65F /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307242102317D8FF00D7F65F /* Card.swift */; };
 /* End PBXBuildFile section */
@@ -37,7 +38,7 @@
 /* Begin PBXFileReference section */
 		3029008D2316EE04005BF548 /* Memory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		302900902316EE04005BF548 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		302900922316EE04005BF548 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		302900922316EE04005BF548 /* MemoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryViewController.swift; sourceTree = "<group>"; };
 		302900952316EE04005BF548 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		302900972316EE07005BF548 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3029009A2316EE07005BF548 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -45,6 +46,7 @@
 		302900A12316EE07005BF548 /* MemoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemoryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		302900AC2316EE07005BF548 /* MemoryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemoryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		302BB8A023215F2900F0036B /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		306DA4542370388100112A54 /* ThemeChooserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeChooserViewController.swift; sourceTree = "<group>"; };
 		3072420E2317D8EF00D7F65F /* Memory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memory.swift; sourceTree = "<group>"; };
 		307242102317D8FF00D7F65F /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,10 +98,11 @@
 			isa = PBXGroup;
 			children = (
 				302900BE2316F01C005BF548 /* Supporting Files */,
-				302900922316EE04005BF548 /* ViewController.swift */,
+				302900922316EE04005BF548 /* MemoryViewController.swift */,
 				3072420E2317D8EF00D7F65F /* Memory.swift */,
 				307242102317D8FF00D7F65F /* Card.swift */,
 				302900942316EE04005BF548 /* Main.storyboard */,
+				306DA4542370388100112A54 /* ThemeChooserViewController.swift */,
 				3029009C2316EE07005BF548 /* Info.plist */,
 				302BB8A023215F2900F0036B /* Theme.swift */,
 			);
@@ -248,7 +251,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3072420F2317D8EF00D7F65F /* Memory.swift in Sources */,
-				302900932316EE04005BF548 /* ViewController.swift in Sources */,
+				302900932316EE04005BF548 /* MemoryViewController.swift in Sources */,
+				306DA4552370388100112A54 /* ThemeChooserViewController.swift in Sources */,
 				302BB8A123215F2900F0036B /* Theme.swift in Sources */,
 				302900912316EE04005BF548 /* AppDelegate.swift in Sources */,
 				307242112317D8FF00D7F65F /* Card.swift in Sources */,

@@ -1,15 +1,16 @@
 import UIKit
 
-class ViewController: UIViewController {
+class MemoryViewController: UIViewController {
     //lazy vars
-    lazy private var game = Memory(numberOfPairsOfCards: numberOfPairsOfCards)
-    lazy private var theme = getRandomTheme(themesArray: getThemesArray())
+    private lazy var game = Memory(numberOfPairsOfCards: numberOfPairsOfCards)
     
     //vars
+    public var theme = Theme(backgroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), cardColor: #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1),emojiChoices: "⛄️❄️🎄🌬🌨☃️🥛🍪🌌💠🤒🐇", name: "Winter")
     private var emojiDict = [Card:String]()
     
     //computed properties
-    var numberOfPairsOfCards: Int { return (cardButtons.count + 1) / 2 }
+    private var numberOfPairsOfCards: Int { return (cardButtons.count + 1) / 2 }
+    
     
     //outlets
     @IBOutlet var scoreLabel: UILabel!
@@ -37,8 +38,8 @@ class ViewController: UIViewController {
     
     @IBAction func startNewGame(_ sender: UIButton) {
         game = Memory(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
-        applyNewTheme()
         updateViewFromModel()
+        theme.resetEmojiChoices()
         
         for button in cardButtons {
             button.isEnabled = true
@@ -47,8 +48,13 @@ class ViewController: UIViewController {
     
     internal override func viewWillAppear(_ animated: Bool) {
         roundButtonCorners()
-        applyNewTheme()
         updateViewFromModel()
+        self.view.backgroundColor = theme.colors.background
+    }
+    
+    internal override func viewDidLoad() {
+        super.viewDidLoad()
+        self.title = theme.name
     }
     
     private func updateLabel(label: UILabel, with text: String) {
@@ -85,46 +91,12 @@ class ViewController: UIViewController {
         return emojiDict[card] ?? "?"
     }
     
-    private func applyNewTheme() {
-        theme = getRandomTheme(themesArray: getThemesArray())
-        self.view.backgroundColor = theme.colors.background
-    }
-    
-    private func getRandomTheme(themesArray themes: [Theme]) -> Theme {
-        let randomThemeId = getThemesArray().count.arc4random
-        
-        return themes[randomThemeId]
-    }
-    
-    private func getThemesArray() -> [Theme] {
-        var themes: [Theme] = []
-        themes.append(Theme(backgroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), cardColor: #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1),emojiChoices: "⛄️❄️🎄🌬🌨☃️🥛🍪🌌💠🤒🐇"))
-        themes.append(Theme(backgroundColor: #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1), cardColor: #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1),emojiChoices: "🐶🐱🐭🐹🐰🦊🐻🐼🐨🐯🦁🐮"))
-        themes.append(Theme(backgroundColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), cardColor: #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1),emojiChoices: "🍭🙀🍬🍁☠️🕷🕸👻😈👿👹🎃"))
-        themes.append(Theme(backgroundColor: #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1), cardColor: #colorLiteral(red: 0.5262701511, green: 0.2519584, blue: 0, alpha: 1),emojiChoices: "🌲🌳🌴🌱🌿🍀🎋🍃🍂🍄🌾💐"))
-        themes.append(Theme(backgroundColor: #colorLiteral(red: 0.9657920003, green: 0.6433867812, blue: 0, alpha: 1), cardColor: #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1),emojiChoices: "🍱🍛🍚🍙🍘🍣📱🀄️🐼🍜🍲🍥"))
-        themes.append(Theme(backgroundColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1), cardColor: #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1),emojiChoices: "💛💚💙💜🖤❣️💕💞💗💖💘💝"))
-        return themes
-    }
-    
     private func roundButtonCorners() {
         for button in cardButtons {
             button.backgroundColor = .clear
             button.layer.cornerRadius = 5
             button.layer.borderWidth = 1
             button.layer.borderColor = UIColor.black.cgColor
-        }
-    }
-}
-
-extension Int {
-    var arc4random: Int {
-        if self > 0 {
-            return Int(arc4random_uniform(UInt32(self)))
-        } else if self < 0 {
-            return -Int(arc4random_uniform(UInt32(abs(self))))
-        } else {
-            return 0
         }
     }
 }
