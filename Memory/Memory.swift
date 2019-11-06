@@ -29,6 +29,12 @@ class Memory {
     func chooseCard(atIndex index: Int) {
         assert(cards.indices.contains(index), "Memory.chooseCard(at \(index)): Index is not in the cards.")
         flipCount += 1
+        
+        for i in cards.indices {
+            cards[i].isLastSelectedCard = false
+        }
+        cards[index].isLastSelectedCard = true
+        
         if !cards[index].isMatched {
             if let matchIndex = indexOfOnlyFaceUpCard, matchIndex != index {
                 //exactly 2 cards are flipped and there is a match

@@ -1,4 +1,5 @@
 import UIKit
+import AVFoundation
 
 class MemoryViewController: UIViewController {
     //lazy vars
@@ -7,6 +8,9 @@ class MemoryViewController: UIViewController {
     //vars
     public var theme = Theme(backgroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), cardColor: #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1),emojiChoices: "⛄️❄️🎄🌬🌨☃️🥛🍪🌌💠🤒🐇", name: "Winter")
     private var emojiDict = [Card:String]()
+    private let sound = Bundle.main.path(forResource: "flip", ofType: "mp3")
+    
+    private var player : AVAudioPlayer!
     
     //computed properties
     private var numberOfPairsOfCards: Int { return (cardButtons.count + 1) / 2 }
@@ -35,6 +39,13 @@ class MemoryViewController: UIViewController {
             game.chooseCard(atIndex: cardNumber)
             updateViewFromModel()
             roundButtonCorners()
+            do {
+                player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
+                player.play()
+            } catch {
+               // couldn't load file :(
+                print(error)
+            }
             
             for index in cardButtons.indices {
                 if game.cards[index].isMatched, cardButtons[index].isEnabled {
@@ -85,6 +96,9 @@ class MemoryViewController: UIViewController {
             } else {
                 button.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
                 button.setTitle(getEmoji(for: card), for: UIControl.State.normal)
+                if card.isLastSelectedCard {
+                    UIView.transition(with: button, duration: 0.5, options: .transitionFlipFromRight, animations: nil, completion: nil)
+                }
             }
         }
     }

@@ -5,6 +5,7 @@ struct Card: Hashable {
     var isFlipped = false
     var isMatched = false
     var alreadySeen = false
+    var isLastSelectedCard = false
     
     private static var idFactory = 0
     

@@ -13,6 +13,8 @@
 		302900982316EE07005BF548 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 302900972316EE07005BF548 /* Assets.xcassets */; };
 		3029009B2316EE07005BF548 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 302900992316EE07005BF548 /* LaunchScreen.storyboard */; };
 		302BB8A123215F2900F0036B /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302BB8A023215F2900F0036B /* Theme.swift */; };
+		304AB5D92372E0BD00E6B916 /* flip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 304AB5D82372E0BD00E6B916 /* flip.mp3 */; };
+		304AB5E02372E3C800E6B916 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 304AB5DB2372E38D00E6B916 /* AVFoundation.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		306DA4552370388100112A54 /* ThemeChooserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306DA4542370388100112A54 /* ThemeChooserViewController.swift */; };
 		3072420F2317D8EF00D7F65F /* Memory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3072420E2317D8EF00D7F65F /* Memory.swift */; };
 		307242112317D8FF00D7F65F /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307242102317D8FF00D7F65F /* Card.swift */; };
@@ -46,6 +48,8 @@
 		302900A12316EE07005BF548 /* MemoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemoryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		302900AC2316EE07005BF548 /* MemoryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemoryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		302BB8A023215F2900F0036B /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		304AB5D82372E0BD00E6B916 /* flip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = flip.mp3; sourceTree = "<group>"; };
+		304AB5DB2372E38D00E6B916 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		306DA4542370388100112A54 /* ThemeChooserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeChooserViewController.swift; sourceTree = "<group>"; };
 		3072420E2317D8EF00D7F65F /* Memory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memory.swift; sourceTree = "<group>"; };
 		307242102317D8FF00D7F65F /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
@@ -56,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				304AB5E02372E3C800E6B916 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +86,7 @@
 			children = (
 				3029008F2316EE04005BF548 /* Memory */,
 				3029008E2316EE04005BF548 /* Products */,
+				304AB5DA2372E38D00E6B916 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -112,11 +118,20 @@
 		302900BE2316F01C005BF548 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				304AB5D82372E0BD00E6B916 /* flip.mp3 */,
 				302900902316EE04005BF548 /* AppDelegate.swift */,
 				302900972316EE07005BF548 /* Assets.xcassets */,
 				302900992316EE07005BF548 /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		304AB5DA2372E38D00E6B916 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				304AB5DB2372E38D00E6B916 /* AVFoundation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,6 +240,7 @@
 			files = (
 				3029009B2316EE07005BF548 /* LaunchScreen.storyboard in Resources */,
 				302900982316EE07005BF548 /* Assets.xcassets in Resources */,
+				304AB5D92372E0BD00E6B916 /* flip.mp3 in Resources */,
 				302900962316EE04005BF548 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
