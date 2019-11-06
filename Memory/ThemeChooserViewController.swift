@@ -9,8 +9,13 @@
 import UIKit
 
 class ThemeChooserViewController: UIViewController {
+    //lazy vars
     private lazy var themes = getThemesArray()
     
+    //IBoutlets
+    @IBOutlet var appTitle: UILabel!
+    
+    //overrides
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Choose Theme" {
             if let themeName = (sender as? UIButton)?.currentTitle {
@@ -23,6 +28,33 @@ class ThemeChooserViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        let emojiAttributes : [NSAttributedString.Key:Any] = [
+            .strokeWidth : 3,
+            .strokeColor : #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1),
+            .font : UIFont.systemFont(ofSize: 35)
+        ]
+        
+        let shadow = NSShadow()
+        shadow.shadowColor = UIColor.gray
+        shadow.shadowBlurRadius = 2
+        
+        let memoryAttributes : [NSAttributedString.Key:Any] = [
+            .strokeWidth : 5,
+            .strokeColor : #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1),
+            .font : UIFont.systemFont(ofSize: 42),
+            .shadow : shadow
+        ]
+        
+        let attributedString1 = NSAttributedString(string: "emoji", attributes: emojiAttributes)
+        let attributedString2 = NSAttributedString(string: "MEMORY", attributes: memoryAttributes)
+        let result = NSMutableAttributedString()
+        result.append(attributedString1)
+        result.append(attributedString2)
+        appTitle.attributedText = result
+    }
+    
+    //other functions
     private func getThemeWith(name: String) -> Theme {
         if name == "Random" {
             return getRandomTheme()

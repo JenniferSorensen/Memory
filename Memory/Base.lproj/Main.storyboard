@@ -279,19 +279,42 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9W-wm-S1U">
+                                <rect key="frame" x="20" y="108" width="374" height="33.666666666666657"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~ choose your theme ~" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ucc-dx-NfA">
+                                <rect key="frame" x="20" y="161.66666666666666" width="374" height="20.333333333333343"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="X9W-wm-S1U" firstAttribute="leading" secondItem="ZXP-i8-4QO" secondAttribute="leading" constant="20" id="0oW-FK-Xil"/>
                             <constraint firstItem="eND-qH-Zeu" firstAttribute="centerX" secondItem="ZXP-i8-4QO" secondAttribute="centerX" id="9O5-9j-qLk"/>
+                            <constraint firstItem="ZXP-i8-4QO" firstAttribute="trailing" secondItem="ucc-dx-NfA" secondAttribute="trailing" constant="20" id="AAX-wv-Xtu"/>
+                            <constraint firstItem="ZXP-i8-4QO" firstAttribute="trailing" secondItem="X9W-wm-S1U" secondAttribute="trailing" constant="20" id="ApA-uT-pKN"/>
+                            <constraint firstItem="X9W-wm-S1U" firstAttribute="centerX" secondItem="ZXP-i8-4QO" secondAttribute="centerX" id="EPQ-hT-2xM"/>
+                            <constraint firstItem="X9W-wm-S1U" firstAttribute="top" secondItem="ZXP-i8-4QO" secondAttribute="top" constant="20" id="edS-1Q-WTq"/>
+                            <constraint firstItem="ucc-dx-NfA" firstAttribute="top" secondItem="X9W-wm-S1U" secondAttribute="bottom" constant="8" id="jeo-0H-339"/>
                             <constraint firstItem="eND-qH-Zeu" firstAttribute="centerY" secondItem="ZXP-i8-4QO" secondAttribute="centerY" id="kym-AU-jK2"/>
+                            <constraint firstItem="ucc-dx-NfA" firstAttribute="top" secondItem="X9W-wm-S1U" secondAttribute="bottom" constant="20" id="pib-Vk-KwT"/>
+                            <constraint firstItem="ucc-dx-NfA" firstAttribute="leading" secondItem="ZXP-i8-4QO" secondAttribute="leading" constant="20" id="yXe-i3-9ye"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZXP-i8-4QO"/>
                     </view>
                     <navigationItem key="navigationItem" id="r5m-xh-nA8"/>
+                    <connections>
+                        <outlet property="appTitle" destination="X9W-wm-S1U" id="6Ug-jy-WUu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ISg-BU-lj9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="536" y="13"/>
+            <point key="canvasLocation" x="534.78260869565224" y="12.723214285714285"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DVd-YD-BhS">

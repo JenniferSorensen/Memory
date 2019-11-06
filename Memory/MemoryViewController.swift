@@ -10,17 +10,31 @@ class MemoryViewController: UIViewController {
     
     //computed properties
     private var numberOfPairsOfCards: Int { return (cardButtons.count + 1) / 2 }
+    //-----------------------------------------------------------------------------
     
-    
-    //outlets
+    //IBoutlets
     @IBOutlet var scoreLabel: UILabel!
     @IBOutlet private weak var flipCountLabel: UILabel!
     @IBOutlet private var cardButtons: [UIButton]!
     
+    //overrides
+    internal override func viewWillAppear(_ animated: Bool) {
+        updateViewFromModel()
+        roundButtonCorners()
+        self.view.backgroundColor = theme.colors.background
+    }
+    
+    internal override func viewDidLoad() {
+        super.viewDidLoad()
+        self.title = theme.name
+    }
+    
+    //IBactions
     @IBAction func touchCard(_ sender: UIButton) {
         if let cardNumber = cardButtons.firstIndex(of: sender), !(game.cards[cardNumber].isFlipped && game.indexOfOnlyFaceUpCard != nil) {
             game.chooseCard(atIndex: cardNumber)
             updateViewFromModel()
+            roundButtonCorners()
             
             for index in cardButtons.indices {
                 if game.cards[index].isMatched, cardButtons[index].isEnabled {
@@ -31,32 +45,24 @@ class MemoryViewController: UIViewController {
                 for index in cardButtons.indices {
                     cardButtons[index].backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
                     cardButtons[index].setTitle("", for: UIControl.State.normal)
+                    cardButtons[index].layer.borderWidth = 0
                 }
             }
         }
     }
     
     @IBAction func startNewGame(_ sender: UIButton) {
+        theme.resetEmojiChoices()
         game = Memory(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
         updateViewFromModel()
-        theme.resetEmojiChoices()
+        roundButtonCorners()
         
         for button in cardButtons {
             button.isEnabled = true
         }
     }
     
-    internal override func viewWillAppear(_ animated: Bool) {
-        roundButtonCorners()
-        updateViewFromModel()
-        self.view.backgroundColor = theme.colors.background
-    }
-    
-    internal override func viewDidLoad() {
-        super.viewDidLoad()
-        self.title = theme.name
-    }
-    
+    //other functions
     private func updateLabel(label: UILabel, with text: String) {
         let attributes : [NSAttributedString.Key:Any] = [
             .strokeWidth : 5,
@@ -92,11 +98,17 @@ class MemoryViewController: UIViewController {
     }
     
     private func roundButtonCorners() {
-        for button in cardButtons {
-            button.backgroundColor = .clear
-            button.layer.cornerRadius = 5
-            button.layer.borderWidth = 1
-            button.layer.borderColor = UIColor.black.cgColor
+        for index in cardButtons.indices {
+            let button = cardButtons[index]
+            let card = game.cards[index]
+            
+            if !card.isMatched || card.isFlipped {
+                button.layer.cornerRadius = 5
+                button.layer.borderWidth = 1
+                button.layer.borderColor = UIColor.black.cgColor
+            } else {
+                button.layer.borderWidth = 0
+            }
         }
     }
 }
